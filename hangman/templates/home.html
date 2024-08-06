@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style type="text/css">
+        body{
+            background-color: rgb(241, 250, 189);
+          }
+        .top{
+            position: absolute;
+            top: 2%;
+            left: 35%;
+            font-size:50px;
+            font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+        .fm{
+            width:350px;
+            height: 40px;
+            border:none;
+            font-size: 16px;
+            display: inline-block;
+            background-color:#796759;
+            color:#fff;
+            border-radius: 5px;
+            border-bottom: 1px dotted #fff;
+        }
+        .btn{
+            margin-top: 15px;
+            margin-left: 100px;
+            width: 130px;
+            height: 35px;
+            font-size: 20px;
+            border-radius: 5px;
+            border:none;
+            background-color:  #F87425;
+        }
+        .btn:hover{
+            color: #fff;
+            background-color:  #F87425;
+            box-shadow: 0 0 10px #F87425,0 0 10px #F87425,0 0 10px #F87425;
+        }
+        .set{
+            position: absolute;
+            top: 30%;
+            left: 40%;
+        }
+    </style>
+</head>
+
+<body>
+
+
+<h1 class="top">Welcome to the game !!
+
+</h1>
+<form action="add" method="POST" class="set">
+    {% csrf_token %}
+   <input class="fm" type="text" name="n" placeholder="Enter your name"><br>
+   <input  class="btn" type="submit" value="start game">
+   
+</form>
+
+
+</body>

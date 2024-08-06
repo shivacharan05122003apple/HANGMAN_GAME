@@ -1,0 +1,339 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <style type="text/css" >
+        body{
+          background-color: antiquewhite;
+        }	
+        .set{
+            position: absolute;
+            top: 37%;
+            left: 60%;
+            padding-left: 50px;
+            padding-right: 30px;
+            padding-top: 100px;
+            padding-bottom: 80px;
+            background-color: aliceblue;
+            opacity: 80%;
+            box-shadow: 5px 5px 5px #000;
+            border-radius: 10px;
+            
+        }
+        
+        .fm{
+            width:300px;
+            height: 40px;
+            border:none;
+            font-size: 16px;
+            display: inline-block;
+            background-color:#796759;
+            color:#fff;
+            border-radius: 5px;
+            border-bottom: 1px dotted #fff;
+        }
+        .btn{
+            position: absolute;
+            top: 75%;
+            left: 32%;
+            width: 130px;
+            height: 35px;
+            font-size: 20px;
+            border-radius: 5px;
+            border:none;
+            background-color:  #F87425;
+        }
+        .btn:hover{
+            color: #fff;
+            background-color:  #F87425;
+            box-shadow: 0 0 10px #F87425,0 0 10px #F87425,0 0 10px #F87425;
+        }
+        .gw{
+            position: absolute;
+            top: 0%;
+            left:25%;
+            font-size: 30px;
+            font-style: italic;
+
+        }
+        .top{
+            position: absolute;
+            top: 2%;
+            left: 45%;
+            font-size:50px;
+            font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+        .top1{
+            position: absolute;
+            top: 11%;
+            left: 20%;
+            font-size: 40px;
+        }
+        .set2{
+            position: absolute;
+            top: 40%;
+            left: 20%;
+            padding-left: 100px;
+            padding-right: 100px;
+            padding-top: 60px;
+            padding-bottom: 80px;
+            background-color: aliceblue;
+            opacity: 80%;
+            box-shadow: 5px 5px 5px #000;
+            border-radius: 10px;
+        }
+        
+        .set3{
+            position: absolute;
+            top: 25%;
+            left: 40%;
+            padding-left: 100px;
+            padding-right: 100px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            background-color: aliceblue;
+            opacity: 80%;
+            box-shadow: 5px 5px 5px #000;
+            border-radius: 10px;
+        
+        }
+        .btm{
+            position:absolute;
+            top: 85%;
+            left: 35%;
+        }
+        .l_btn{
+            position: absolute;
+            top: 2%;
+            left: 85%;
+            color: rgb(245, 238, 238);
+            height:40px;
+            background-color: #0c0c0c;
+            width: 150px;
+            margin-right: 125px;
+            margin-top: 20px;
+            border-radius: 5px;
+            font-size: 15px;
+
+            }
+            
+            .l_btn:hover{
+            color: black;
+            background-color: white;
+            }
+            .swal-overlay {
+                background-color: rgba(43, 165, 137, 0.45);
+              }
+              .model{
+                  width: 100%;
+                  height: 100%;
+                  background-color:rgb(0,0,0, 0.7);
+                  position: absolute;
+                  top: 0;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+              }
+            .modell{
+                  width: 500px;
+                  height:300px;
+                  background-color:rgba(238, 244, 255, 0.938);
+                  border-radius: 5px;
+              }
+              .r-btn{
+                  justify-content: center;
+                color: rgb(245, 238, 238);
+                height:40px;
+                background-color: hsl(184, 97%, 54%);
+                width: 150px;
+                margin-left: 170px;
+                margin-top: 20px;
+                border-radius: 5px;
+                font-size: 15px;
+              }
+              .modell h1{
+                  margin-top:80px;
+                  justify-content: center;
+                  text-align: center;
+              }
+              .modell h2{
+                justify-content: center;
+                text-align: center;
+              }
+              .set input{
+                color: rgb(245, 238, 238);
+                height:40px;
+                width: 50px;
+                background-color: hsl(0, 0%, 24%);
+                margin-block-end: 5px;
+                
+                
+              }
+    </style>
+</head>
+<body>
+    
+    <script>
+        {% for m in msg %}
+            swal(
+                {
+                    title:"{{g1.clue}}",
+                }
+                )
+        {% endfor %}
+    </script>
+
+    <h1 class="top">Hello {{g1.name}}
+       
+    </h1>
+    <h2 class="top1">you can start the game, you need to guess the word given below</h1>
+
+
+<div >
+<h1 class="set3" >{{g1.display}}</h1>
+</div>
+
+<div class="set">
+    <h2 class="gw">Guess the word</h2>
+<form action="check" method="POST" >
+    {% csrf_token %}
+    
+    <input  type="submit" name="guess" value="a">
+    <input  type="submit" name="guess" value="b">
+    <input  type="submit" name="guess" value="c">
+    <input  type="submit" name="guess" value="d">
+    <input  type="submit" name="guess" value="e">
+    <input  type="submit" name="guess" value="f"><br>
+    <input  type="submit" name="guess" value="g">
+    <input  type="submit" name="guess" value="h">
+    <input  type="submit" name="guess" value="i">
+    <input  type="submit" name="guess" value="j">
+    <input  type="submit" name="guess" value="k">
+    <input  type="submit" name="guess" value="l"><br>
+    <input  type="submit" name="guess" value="m">
+    <input  type="submit" name="guess" value="n">
+    <input  type="submit" name="guess" value="o">
+    <input  type="submit" name="guess" value="p">
+    <input  type="submit" name="guess" value="q">
+    <input  type="submit" name="guess" value="r">
+    <input  type="submit" name="guess" value="s"><br>
+    <input  type="submit" name="guess" value="t">
+    <input  type="submit" name="guess" value="u">
+    <input  type="submit" name="guess" value="v">
+    <input  type="submit" name="guess" value="w">
+    <input  type="submit" name="guess" value="x">
+    <input  type="submit" name="guess" value="y">
+    <input  type="submit" name="guess" value="z">
+    
+
+
+    
+</form>
+</div>
+<h1 class="btm">{{error}}
+    
+</h1>
+
+
+<div class="set2">
+
+{% if g1.count == 0 %}
+
+<img src="{% static 'images/hang0.gif'%}">
+{% elif g1.count == 1%}
+{%  if g1.error %}
+<audio autoplay="">
+
+    <source src="{% static 'audio5.mp3'%}" type="audio/mpeg">
+
+</audio>
+{% endif %}
+<img src="{% static 'images/hang2.gif'%}">
+{% elif g1.count == 2%}
+{%  if g1.error %}
+<audio autoplay="">
+
+    <source src="{% static 'audio4.mp3'%}" type="audio/mpeg">
+
+</audio>
+{% endif %}
+<img src="{% static 'images/hang4.gif'%}">
+{% elif g1.count == 3%}
+{%  if g1.error %}
+<audio autoplay="">
+
+    <source src="{% static 'audio3.mp3'%}" type="audio/mpeg">
+
+</audio>
+{% endif %}
+<img src="{% static 'images/hang6.gif'%}">
+{% elif g1.count == 4%}
+{%  if g1.error %}
+<audio autoplay="">
+
+    <source src="{% static 'audio2.mp3'%}" type="audio/mpeg">
+
+</audio>
+{% endif %}
+<img src="{% static 'images/hang8.gif'%}">
+{% elif g1.count == 5%}
+{%  if g1.error %}
+<audio autoplay="" >
+
+    <source src="{% static 'audio1.mp3'%}" type="audio/mpeg">
+
+</audio>
+{% endif %}
+<img src="{% static 'images/hang10.gif'%}">
+{% endif%}
+
+
+
+</div>
+<form action="playgame" method="POST">
+    {% csrf_token%}
+    
+<input class="l_btn" type="submit" name="playgame" value="strat new game">
+
+</form>
+<form action="CLUE" method="POST">
+    {% csrf_token%}
+    
+<input class="l_btn" type="submit" name="CLUE" value="CLUE">
+
+</form>
+{%if g1.count > 5 %}
+<div class="model">
+<div class="modell">
+   <h1>Oops!!! you lost the game </h1>
+   <h2>the answer is "{{g1.answer}}"</h2>
+   <form action="playgame" method="POST">
+    {% csrf_token%}
+    
+<input class="r-btn" type="submit" name="playgame" value="start new game">
+
+</form>
+</div>
+</div>
+{% endif %}
+{%if g1.win %}
+<div class="model">
+<div class="modell">
+   <h1>Hurry!!! you won the game </h1>
+   <form action="playgame" method="POST">
+    {% csrf_token%}
+    
+<input class="r-btn" type="submit" name="playgame" value="start new game">
+
+</form>
+</div>
+</div>
+{% endif %}
+
+</body>
+</html>
